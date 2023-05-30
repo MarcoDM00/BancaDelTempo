@@ -1,34 +1,34 @@
-<mat-card>
-    <form>
-        <mat-form-field>
-            <input
-            matInput
-            type="text"
-            name="usr"
-            #usr
-            required
-            minlength="8"
-            placeholder="Username"
-            [(ngModel)]="username">
-            <mat-error *ngIf="usr.invalid">Inserire username (min. 8 lettere)</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <input
-            matInput
-            name="psw"
-            #psw
-            ngModel
-            required
-            minlength="8"
-            placeholder="Password"
-            [(ngModel)]="password">
-            <mat-error *ngIf="psw.invalid">Inserire password (min. 8 lettere)</mat-error>
-        </mat-form-field>
+<form (submit)="login()">
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        name="usr"
+        #usr
+        required
+        minlength="8"
+        placeholder="Username"
+        [(ngModel)]="username">
+        <mat-error>Inserire username (min. 8 lettere)</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput
+        name="psw"
+        #psw
+        ngModel
+        required
+        minlength="8"
+        placeholder="Password"
+        [(ngModel)]="password">
+        <mat-error>Inserire password (min. 8 lettere)</mat-error>
+    </mat-form-field>
+    <div style="text-align: center;">
         <button
             mat-raised-button
             color="primary"
             type="sumbit">
-            Save Comment
+            Login
         </button>
-    </form>
-</mat-card>
+    </div>
+</form>
