@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {NgForm} from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
@@ -18,10 +18,14 @@ import { MatOptionModule } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './router.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatFormFieldModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
-    NgForm
+    MatExpansionModule
+    //NgForm
   ],
   providers: [],
   bootstrap: [AppComponent]
