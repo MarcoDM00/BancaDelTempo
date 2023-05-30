@@ -13,7 +13,7 @@ export class LoginComponent {
   constructor(private http:HttpClient){}
 
   login() {
-    this.http.post("http://127.0.0.1:8080", {"tabella": "", "username": this.username, "password": this.password}).subscribe(
+    this.http.post("http://127.0.0.1:8080", {"azione": "register", "usr": this.username, "psw": this.password}).subscribe(
       res => {
         console.log(res);
       },

@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTreeModule} from '@angular/material/tree';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -45,8 +46,9 @@ import { RegisterComponent } from './register/register.component';
     MatFormFieldModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
-    MatExpansionModule
-    //NgForm
+    MatExpansionModule,
+    BrowserAnimationsModule,
+    MatTreeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

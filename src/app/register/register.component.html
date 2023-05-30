@@ -1,1 +1,34 @@
-<p>register works!</p>
+<form (submit)="register()">
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        name="usr"
+        #usr
+        required
+        minlength="4"
+        placeholder="Username"
+        [(ngModel)]="username">
+        <mat-error>Inserire username (min. 8 lettere)</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput
+        name="psw"
+        #psw
+        ngModel
+        required
+        minlength="4"
+        placeholder="Password"
+        [(ngModel)]="password">
+        <mat-error>Inserire password (min. 8 lettere)</mat-error>
+    </mat-form-field>
+    <div style="text-align: center;">
+        <button
+            mat-raised-button
+            color="primary"
+            type="sumbit">
+            Register
+        </button>
+    </div>
+</form>
