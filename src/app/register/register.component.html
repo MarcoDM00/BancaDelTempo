@@ -20,12 +20,12 @@
         <mat-error>Inserire citta (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="text" required minlength="8" placeholder="Telefono" [(ngModel)]="telefono" name="telefono">
+        <input matInput type="text" required minlength="8" maxlength="10" placeholder="Telefono" [(ngModel)]="telefono" name="telefono">
         <mat-error>Inserire telefono</mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Codice zona</mat-label>
-        <mat-select>
+        <mat-select [(ngModel)]="zcod" name="zcod">
             <mat-option *ngFor="let x of codiciZona" [value]="x">
                 {{x}}
             </mat-option>

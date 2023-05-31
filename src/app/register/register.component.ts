@@ -13,7 +13,7 @@ export class RegisterComponent {
   cap:string = "";
   citta:string = "";
   telefono:string = "";
-  codiciZona:number[] = [1,3,5,6,7];
+  codiciZona:number[] = [];
   zcod:number = 0;
   username:string = "";
   password:string = "";

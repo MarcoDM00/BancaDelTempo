@@ -5,10 +5,10 @@ class  Wrapper:
     def __init__(self):
         #5.172.64.20
         #192.168.40.16
-        self.server = "localhost"#"192.168.40.16\SQLEXPRESS"
-        self.user = "root"#"CRD2122"
-        self.password = ""#"xxx123##"
-        self.db = "ciao"#"CRD2122"
+        self.server = "5.172.64.20\SQLEXPRESS"
+        self.user = "CRD2122"
+        self.password = "xxx123##"
+        self.db = "CRD2122"
     
     def connetti(self):
         try:
@@ -218,7 +218,7 @@ class  Wrapper:
         x = 0
         try:
             con = self.connetti()
-            cur = con.cursor(as_dict = as_dict)
+            cur = con.cursor(as_dict = True)
             sql = "SELECT * FROM I53_BdT_Prestazione"
             cur.execute(sql)
             x = cur.fetchall()
@@ -231,16 +231,18 @@ class  Wrapper:
            
     def insert_prestazione(self, parametri):
         try:
+            print(parametri)
             con = self.connetti()
             cur = con.cursor(as_dict=True)
-            sql = "INSERT INTO I53_BdT_Prestazione VALUES(%s, %d)"
+            sql = "INSERT INTO I53_BdT_Prestazione VALUES (%s, %d)"
             cur.execute(sql, parametri)
             con.commit()
-            return 0
+            return 1
         except Exception as err:
             print("********** ERRORE [insert_prestazione] **********")
             print(str(err))
         self.disconnetti(con)
+        return 0
 
     def visuaEffettua(self):
         con = self.connetti()
@@ -272,7 +274,7 @@ class  Wrapper:
         x = 0
         try:
             con = self.connetti()
-            cur = con.cursor(as_dict = as_dict)
+            cur = con.cursor(as_dict = True)
             sql = """
                     create table BdT_t1 (
                     se int not null,
@@ -359,7 +361,7 @@ class  Wrapper:
             con = self.connetti()
             try:
                 cur = con.cursor(as_dict=True)
-                query = " select ZMappa from BdT_Zona z join BdT_Socio s on z.ZCod=s.zCod where s.SCod = %s"
+                query = " select ZMappa from BdT_Zona z join BdT_Socio s on z.ZCod = s.zCod where s.SCod = %s"
                 cur.execute(query, (dati))
                 res = cur.fetchone()
                 self.disconnect(con)

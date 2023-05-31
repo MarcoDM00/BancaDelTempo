@@ -20,6 +20,9 @@ class MyController(object):
             elif tabella.lower() == "offerta": return self._w.visuaOfferta()
             elif tabella.lower() == "effettua": return self._w.visuaEffettua()
             elif tabella.lower() == "prenotazione": return self._w.visuaPrenotazioni()
+            elif tabella.lower() == "querya": return self._w.query1()
+            elif tabella.lower() == "queryc": return self._w.query3()
+            elif tabella.lower() == "queryd": return self._w.query4()
             else:
                 cherrypy.response.status = 404
                 return {"errore": "Tabella non trovata"}
@@ -32,13 +35,19 @@ class MyController(object):
         azione = data["azione"]
         data.pop("azione")
         if azione == "login":
-            #res = self._w.login(data["usr"], data["psw"])
-            res = self._w.login2(data["usr"], data["psw"])
-            return {"esito": 1} if res == 1 else {"esito": 0}
+            res = self._w.login(data["usr"], data["psw"])
+            return {"esito": res}
         elif azione == "register":
-            #res = self._w.register((data["cognome"], data["nome"], data["via"], data["cap"], data["citta"], data["telefono"], data["ZCod"], data["usr"], data["psw"]))
-            res = self._w.register((data["usr"], data["psw"]))
-            return {"esito": 1} if res == 1 else {"esito": 0}
+            dati = (data["cognome"], data["nome"], data["via"], data["cap"], data["citta"], data["telefono"], data["ZCod"], data["usr"], data["psw"])
+            print(dati)
+            res = self._w.register(dati)
+            return {"esito": res}
+        elif azione == "insert":
+            if data["tabella"] == "prestazione":
+                res = self._w.insert_prestazione((data["PDescr"], data["CCod"]))
+                return {"esito": res}
+            else:
+                return {"errore": "tabella non prevista"}
         else:
             cherrypy.response.status = 400
             return {"errore": "azione non prevista"}

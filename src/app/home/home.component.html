@@ -1,2 +1,239 @@
 <h1 style="text-align: center;">HOME</h1>
+<div style="text-align: center;">
+    <button (click)="categoria()">Visua categoria</button>
+    <table [hidden]="hideCategoria" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>CCod</th>
+                <th>CDescr</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of categorie">
+                <td>{{x.CCod}}</td>
+                <td>{{x.CDescr}}</td>
+            </tr>
+        </tbody>
+    </table>
 
+    <br>
+
+    <button (click)="query_D()">Visua Query D</button>
+    <table [hidden]="hideQueryD" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>PDescr</th>
+                <th>OreErogate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of queryD">
+                <td>{{x.PDescr}}</td>
+                <td>{{x.OreErogate}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button (click)="soci()">Visua Socio</button>
+    <table [hidden]="hideSocio" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>SCod</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Via</th>
+                <th>Cap</th>
+                <th>Citta</th>
+                <th>Telefono</th>
+                <th>ZCod</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of socio">
+                <td>{{x.SCod}}</td>
+                <td>{{x.Cognome}}</td>
+                <td>{{x.nome}}</td>
+                <td>{{x.via}}</td>
+                <td>{{x.cap}}</td>
+                <td>{{x.citta}}</td>
+                <td>{{x.telefono}}</td>
+                <td>{{x.ZCod}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button (click)="offerte()">Visua Offerta</button>
+    <table [hidden]="hideOfferta" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>SCod</th>
+                <th>PCod</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of offerta">
+                <td>{{x.SCod}}</td>
+                <td>{{x.PCod}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button (click)="query_C()">Visua queryC</button>
+    <table [hidden]="hideQueryC" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Via</th>
+                <th>Citta</th>
+                <th>Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of queryC">
+                <td>{{x.Cognome}}</td>
+                <td>{{x.Nome}}</td>
+                <td>{{x.Via}}</td>
+                <td>{{x.Citta}}</td>
+                <td>{{x.Telefono}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button (click)="zona()">Visua Zone</button>
+    <table [hidden]="hideZone" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>ZCod</th>
+                <th>ZDescr</th>
+                <th>ZMappa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of zone">
+                <td>{{x.ZCod}}</td>
+                <td>{{x.ZDescr}}</td>
+                <td>{{x.ZMappa}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button (click)="categoria(); prestazioni();">Visua Prestazioni</button>
+    <br [hidden]="hidePrestazione">
+    <br [hidden]="hidePrestazione">
+    <input [hidden]="hidePrestazione"
+        matInput
+        type="text"
+        name="pDescr"
+        required
+        minlength="4"
+        placeholder="PDescr"
+        [(ngModel)]="newPrestazione.PDescr">
+        <br [hidden]="hidePrestazione">
+        <mat-label [hidden]="hidePrestazione">Codice zona</mat-label>
+        <mat-select [hidden]="hidePrestazione" [(ngModel)]="newPrestazione.CCod" name="ccod">
+            <mat-option *ngFor="let x of categorie" [value]="x.CCod">
+                {{x.CCod}}
+            </mat-option>
+        </mat-select>
+        <button [hidden]="hidePrestazione" (click)="addPrestazione()">Inserisci</button>
+    <br [hidden]="hidePrestazione">
+    <table [hidden]="hidePrestazione" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>PCod</th>
+                <th>PDescr</th>
+                <th>CCod</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of prestazione">
+                <td>{{x.PCod}}</td>
+                <td>{{x.PDescr}}</td>
+                <td>{{x.CCod}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button (click)="query_A()">Visua QueryA</button>
+    <table [hidden]="hideQueryA" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>Sri</th>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Via</th>
+                <th>OreDebito</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of queryA">
+                <td>{{x.Sri}}</td>
+                <td>{{x.Cognome}}</td>
+                <td>{{x.Nome}}</td>
+                <td>{{x.Via}}</td>
+                <td>{{x.OreDebito}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button (click)="prenotazioni()">Visua Prenotazioni</button>
+    <table [hidden]="hidePrenotazione" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>SRichiedente</th>
+                <th>PCod</th>
+                <th>DataDellaRich</th>
+                <th>DataP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of prenotazione">
+                <td>{{x.N}}</td>
+                <td>{{x.SRichiedente}}</td>
+                <td>{{x.PCod}}</td>
+                <td>{{x.DataDellaRich}}</td>
+                <td>{{x.DataP}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button (click)="effettuazioni()">Visua Effettuazioni</button>
+    <table [hidden]="hideEffettua" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <thead>
+            <tr>
+                <th>Num</th>
+                <th>Data</th>
+                <th>SocioErogante</th>
+                <th>SocioRicevente</th>
+                <th>PCod</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of effettua">
+                <td>{{x.Num}}</td>
+                <td>{{x.Data}}</td>
+                <td>{{x.SocioErogante}}</td>
+                <td>{{x.SocioRicevente}}</td>
+                <td>{{x.PCod}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
