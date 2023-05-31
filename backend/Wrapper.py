@@ -5,10 +5,10 @@ class  Wrapper:
     def __init__(self):
         #5.172.64.20
         #192.168.40.16
-        self.server = "192.168.40.16\SQLEXPRESS"
-        self.user = "CRD2122"
-        self.password = "xxx123##"
-        self.db = "CRD2122"
+        self.server = "localhost"#"192.168.40.16\SQLEXPRESS"
+        self.user = "root"#"CRD2122"
+        self.password = ""#"xxx123##"
+        self.db = "ciao"#"CRD2122"
     
     def connetti(self):
         try:
@@ -35,13 +35,37 @@ class  Wrapper:
         except Exception as e:
             print(e)
             return 0
+        
+    def login2(self, usr, psw):
+        conn = self.connetti()
+        try:
+            cur = conn.cursor()
+            query = "SELECT * FROM Utenti WHERE Username = %s AND Password = %s"
+            cur.execute(query, (usr, psw))
+            res = cur.fetchall()
+            return len(res) == 1
+        except Exception as e:
+            print(e)
+            return 0
 
-    def register(self, usr, psw):
+    def register(self, dati):
         conn = self.connetti()
         try:
             cur = conn.cursor()
             query = "INSERT INTO I53_Bdt_Socio VALUES (%s, %s, %s, %s, %s, %s, %d, %s, %s)"
-            cur.execute(query, ('a', 'b', 'c', 'd', 'e', 'f', '11', usr, psw))
+            cur.execute(query, dati)
+            conn.commit()
+            return 1
+        except Exception as e:
+            print(e)
+            return 0
+    
+    def register2(self, dati):
+        conn = self.connetti()
+        try:
+            cur = conn.cursor()
+            query = "INSERT INTO Utenti VALUES (%s, %s)"
+            cur.execute(query, dati)
             conn.commit()
             return 1
         except Exception as e:

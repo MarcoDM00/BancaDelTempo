@@ -32,10 +32,12 @@ class MyController(object):
         azione = data["azione"]
         data.pop("azione")
         if azione == "login":
-            res = self._w.login(data["usr"], data["psw"])
+            #res = self._w.login(data["usr"], data["psw"])
+            res = self._w.login2(data["usr"], data["psw"])
             return {"esito": 1} if res == 1 else {"esito": 0}
         elif azione == "register":
-            res = self._w.register(data["usr"], data["psw"])
+            #res = self._w.register((data["cognome"], data["nome"], data["via"], data["cap"], data["citta"], data["telefono"], data["ZCod"], data["usr"], data["psw"]))
+            res = self._w.register((data["usr"], data["psw"]))
             return {"esito": 1} if res == 1 else {"esito": 0}
         else:
             cherrypy.response.status = 400

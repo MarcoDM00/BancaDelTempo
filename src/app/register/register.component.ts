@@ -32,7 +32,7 @@ export class RegisterComponent {
   }
 
   register() {
-    this.http.post("http://127.0.0.1:8080", {"azione": "register", "usr": this.username, "psw": this.password}).subscribe(
+    this.http.post("http://127.0.0.1:8080", {"azione": "register", "cognome": this.cognome, "nome": this.nome, "via": this.via, "cap": this.cap, "citta": this.citta, "telefono": this.telefono, "ZCod": this.zcod, "usr": this.username, "psw": this.password}).subscribe(
       res => {
         console.log(res);
       },
@@ -41,5 +41,4 @@ export class RegisterComponent {
       }
     )
   }
-
 }
