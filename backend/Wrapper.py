@@ -5,7 +5,7 @@ class  Wrapper:
     def __init__(self):
         #5.172.64.20
         #192.168.40.16
-        self.server = "5.172.64.20\SQLEXPRESS"
+        self.server = "192.168.40.16\SQLEXPRESS"
         self.user = "CRD2122"
         self.password = "xxx123##"
         self.db = "CRD2122"

@@ -3,13 +3,83 @@
         <input
         matInput
         type="text"
+        required
+        minlength="4"
+        placeholder="Cognome"
+        [(ngModel)]="cognome">
+        <mat-error>Inserire cognome (min. 4 lettere)</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        required
+        minlength="4"
+        placeholder="Nome"
+        [(ngModel)]="nome">
+        <mat-error>Inserire nome (min. 4 lettere)</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        required
+        minlength="4"
+        placeholder="Via"
+        [(ngModel)]="via">
+        <mat-error>Inserire via (min. 4 lettere)</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        required
+        minlength="5"
+        maxlength="5"
+        placeholder="CAP"
+        [(ngModel)]="cap">
+        <mat-error>Inserire CAP (5 numeri)</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        required
+        minlength="4"
+        placeholder="Citta"
+        [(ngModel)]="citta">
+        <mat-error>Inserire citta (min. 4 lettere)</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        required
+        minlength="8"
+        placeholder="Telefono"
+        [(ngModel)]="telefono">
+        <mat-error>Inserire telefono</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Cars</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let x of codiciZona" [value]="x">
+              {{x}}
+            </mat-option>
+          </mat-select>
+        <mat-error>Inserire cognome (min. 4 lettere)</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
         name="usr"
         #usr
         required
         minlength="4"
         placeholder="Username"
         [(ngModel)]="username">
-        <mat-error>Inserire username (min. 8 lettere)</mat-error>
+        <mat-error>Inserire username (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
         <input
@@ -21,7 +91,7 @@
         minlength="4"
         placeholder="Password"
         [(ngModel)]="password">
-        <mat-error>Inserire password (min. 8 lettere)</mat-error>
+        <mat-error>Inserire password (min. 4 lettere)</mat-error>
     </mat-form-field>
     <div style="text-align: center;">
         <button
