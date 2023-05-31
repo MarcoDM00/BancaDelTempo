@@ -1,103 +1,47 @@
 <form (submit)="register()">
     <mat-form-field>
-        <input
-        matInput
-        type="text"
-        required
-        minlength="4"
-        placeholder="Cognome"
-        [(ngModel)]="cognome">
+        <input matInput type="text" required minlength="4" placeholder="Cognome" [(ngModel)]="cognome" name="cognome">
         <mat-error>Inserire cognome (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input
-        matInput
-        type="text"
-        required
-        minlength="4"
-        placeholder="Nome"
-        [(ngModel)]="nome">
+        <input matInput type="text" required minlength="4" placeholder="Nome" [(ngModel)]="nome" name="nome">
         <mat-error>Inserire nome (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input
-        matInput
-        type="text"
-        required
-        minlength="4"
-        placeholder="Via"
-        [(ngModel)]="via">
+        <input matInput type="text" required minlength="4" placeholder="Via" [(ngModel)]="via" name="via">
         <mat-error>Inserire via (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input
-        matInput
-        type="text"
-        required
-        minlength="5"
-        maxlength="5"
-        placeholder="CAP"
-        [(ngModel)]="cap">
+        <input matInput type="text" required minlength="5" maxlength="5" placeholder="CAP" [(ngModel)]="cap" name="cap">
         <mat-error>Inserire CAP (5 numeri)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input
-        matInput
-        type="text"
-        required
-        minlength="4"
-        placeholder="Citta"
-        [(ngModel)]="citta">
+        <input matInput type="text" required minlength="4" placeholder="Citta" [(ngModel)]="citta" name="citta">
         <mat-error>Inserire citta (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input
-        matInput
-        type="text"
-        required
-        minlength="8"
-        placeholder="Telefono"
-        [(ngModel)]="telefono">
+        <input matInput type="text" required minlength="8" placeholder="Telefono" [(ngModel)]="telefono" name="telefono">
         <mat-error>Inserire telefono</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Cars</mat-label>
+        <mat-label>Codice zona</mat-label>
         <mat-select>
             <mat-option *ngFor="let x of codiciZona" [value]="x">
-              {{x}}
+                {{x}}
             </mat-option>
-          </mat-select>
+        </mat-select>
         <mat-error>Inserire cognome (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input
-        matInput
-        type="text"
-        name="usr"
-        #usr
-        required
-        minlength="4"
-        placeholder="Username"
-        [(ngModel)]="username">
+        <input matInput type="text" name="usr" #usr required minlength="4" placeholder="Username" [(ngModel)]="username" name="username">
         <mat-error>Inserire username (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input
-        matInput
-        name="psw"
-        #psw
-        ngModel
-        required
-        minlength="4"
-        placeholder="Password"
-        [(ngModel)]="password">
+        <input matInput name="psw" #psw ngModel required minlength="4" placeholder="Password" [(ngModel)]="password" name="password">
         <mat-error>Inserire password (min. 4 lettere)</mat-error>
     </mat-form-field>
     <div style="text-align: center;">
-        <button
-            mat-raised-button
-            color="primary"
-            type="sumbit">
+        <button mat-raised-button color="primary" type="sumbit">
             Register
         </button>
     </div>
