@@ -5,7 +5,7 @@ class  Wrapper:
     def __init__(self):
         #5.172.64.20
         #192.168.40.16
-        self.server = "5.172.64.20\SQLEXPRESS"
+        self.server = "192.168.40.16\SQLEXPRESS"
         self.user = "CRD2122"
         self.password = "xxx123##"
         self.db = "CRD2122"
@@ -334,7 +334,7 @@ class  Wrapper:
         result = []
         try:
             con = self.connetti()
-            cursor = con.cursor()
+            cursor = con.cursor(as_dict=True)
             query = """
             SELECT s.Cogn, s.Nome, s.Via, s.Citta, s.Tel
             FROM I53_BdT_Socio as s 
@@ -352,6 +352,7 @@ class  Wrapper:
             """
             cursor.execute(query)
             result = cursor.fetchall()
+            print(cursor.rowcount)
         except:
             print("ciao")
             self.disconnetti(con)
