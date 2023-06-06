@@ -1,43 +1,43 @@
-<form (submit)="register()">
+<form (submit)="gestore.register()">
     <mat-form-field>
-        <input matInput type="text" required minlength="4" placeholder="Cognome" [(ngModel)]="cognome" name="cognome">
+        <input matInput type="text" required minlength="4" placeholder="Cognome" [(ngModel)]="gestore.cognome" name="cognome">
         <mat-error>Inserire cognome (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="text" required minlength="4" placeholder="Nome" [(ngModel)]="nome" name="nome">
+        <input matInput type="text" required minlength="4" placeholder="Nome" [(ngModel)]="gestore.nome" name="nome">
         <mat-error>Inserire nome (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="text" required minlength="4" placeholder="Via" [(ngModel)]="via" name="via">
+        <input matInput type="text" required minlength="4" placeholder="Via" [(ngModel)]="gestore.via" name="via">
         <mat-error>Inserire via (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="text" required minlength="5" maxlength="5" placeholder="CAP" [(ngModel)]="cap" name="cap">
+        <input matInput type="text" required minlength="5" maxlength="5" placeholder="CAP" [(ngModel)]="gestore.cap" name="cap">
         <mat-error>Inserire CAP (5 numeri)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="text" required minlength="4" placeholder="Citta" [(ngModel)]="citta" name="citta">
+        <input matInput type="text" required minlength="4" placeholder="Citta" [(ngModel)]="gestore.citta" name="citta">
         <mat-error>Inserire citta (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="text" required minlength="8" maxlength="10" placeholder="Telefono" [(ngModel)]="telefono" name="telefono">
+        <input matInput type="text" required minlength="8" maxlength="10" placeholder="Telefono" [(ngModel)]="gestore.telefono" name="telefono">
         <mat-error>Inserire telefono</mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Codice zona</mat-label>
-        <mat-select [(ngModel)]="zcod" name="zcod">
-            <mat-option *ngFor="let x of codiciZona" [value]="x">
-                {{x}}
+        <mat-select [(ngModel)]="gestore.zcod" name="zcod">
+            <mat-option *ngFor="let x of gestore.zone" [value]="x.ZCod">
+                {{x.ZCod}}
             </mat-option>
         </mat-select>
         <mat-error>Inserire cognome (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="text" name="usr" #usr required minlength="4" placeholder="Username" [(ngModel)]="username" name="username">
+        <input matInput type="text" name="usr" #usr required minlength="4" placeholder="Username" [(ngModel)]="gestore.username" name="username">
         <mat-error>Inserire username (min. 4 lettere)</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput name="psw" #psw ngModel required minlength="4" placeholder="Password" [(ngModel)]="password" name="password">
+        <input matInput name="psw" #psw ngModel required minlength="4" placeholder="Password" [(ngModel)]="gestore.password" name="password">
         <mat-error>Inserire password (min. 4 lettere)</mat-error>
     </mat-form-field>
     <div style="text-align: center;">

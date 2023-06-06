@@ -5,7 +5,7 @@ class  Wrapper:
     def __init__(self):
         #5.172.64.20
         #192.168.40.16
-        self.server = "192.168.40.16\SQLEXPRESS"
+        self.server = "5.172.64.20\SQLEXPRESS"
         self.user = "CRD2122"
         self.password = "xxx123##"
         self.db = "CRD2122"
@@ -31,19 +31,7 @@ class  Wrapper:
             query = "SELECT SCod FROM I53_Bdt_Socio WHERE Username = %s AND Password = %s"
             cur.execute(query, (usr, psw))
             res = cur.fetchall()
-            return len(res) == 1
-        except Exception as e:
-            print(e)
-            return 0
-        
-    def login2(self, usr, psw):
-        conn = self.connetti()
-        try:
-            cur = conn.cursor()
-            query = "SELECT * FROM Utenti WHERE Username = %s AND Password = %s"
-            cur.execute(query, (usr, psw))
-            res = cur.fetchall()
-            return len(res) == 1
+            return res
         except Exception as e:
             print(e)
             return 0
@@ -53,18 +41,6 @@ class  Wrapper:
         try:
             cur = conn.cursor()
             query = "INSERT INTO I53_Bdt_Socio VALUES (%s, %s, %s, %s, %s, %s, %d, %s, %s)"
-            cur.execute(query, dati)
-            conn.commit()
-            return 1
-        except Exception as e:
-            print(e)
-            return 0
-    
-    def register2(self, dati):
-        conn = self.connetti()
-        try:
-            cur = conn.cursor()
-            query = "INSERT INTO Utenti VALUES (%s, %s)"
             cur.execute(query, dati)
             conn.commit()
             return 1
@@ -125,7 +101,7 @@ class  Wrapper:
         conn = self.connetti()
         try:
             cursore = conn.cursor()
-            sql = "INSERT INTO I53_Bdt_Prenotazione VALUES(%d, %s, %d, %s, %s)"
+            sql = "INSERT INTO I53_Bdt_Prenotazione VALUES(%d, %d, %s, %s)"
             cursore.execute(sql, parametri)
             conn.commit()
         except Exception as err:
@@ -153,13 +129,15 @@ class  Wrapper:
         con = self.connetti()
         try:
             cur = con.cursor(as_dict=True)
-            query = "INSERT INTO I53_Bdt_Offerta VALUES (%s, %s)"
+            query = "INSERT INTO I53_Bdt_Offerta VALUES (%d, %d)"
             cur.execute(query, dati)
             con.commit()
             print("operazione riuscita")
+            return 1
         except Exception as e:
             print(e)
             self.disconnetti(con)    
+            return 0
     
     
     def insertCategoria(self, dati):
@@ -231,13 +209,12 @@ class  Wrapper:
            
     def insert_prestazione(self, parametri):
         try:
-            print(parametri)
             con = self.connetti()
             cur = con.cursor(as_dict=True)
             sql = "INSERT INTO I53_BdT_Prestazione VALUES (%s, %d)"
             cur.execute(sql, parametri)
             con.commit()
-            return 1
+            return cur.lastrowid
         except Exception as err:
             print("********** ERRORE [insert_prestazione] **********")
             print(str(err))

@@ -32,19 +32,26 @@ class MyController(object):
     def POST(self):
         cherrypy.response.headers['Access-Control-Allow-Origin'] = '*'
         data = cherrypy.request.json
+        print(data)
         azione = data["azione"]
         data.pop("azione")
         if azione == "login":
             res = self._w.login(data["usr"], data["psw"])
-            return {"esito": res}
+            return {"esito": len(res)==1, "id":res}
         elif azione == "register":
             dati = (data["cognome"], data["nome"], data["via"], data["cap"], data["citta"], data["telefono"], data["ZCod"], data["usr"], data["psw"])
-            print(dati)
             res = self._w.register(dati)
             return {"esito": res}
         elif azione == "insert":
             if data["tabella"] == "prestazione":
                 res = self._w.insert_prestazione((data["PDescr"], data["CCod"]))
+                return {"id": str(res)}
+            elif data["tabella"] == "prenotazione":
+                res = self._w.insertPrenotazioni((data["srichiedente"], data["pcod"], data["datadellarich"], data["datap"]))
+                return {"esito": res}
+            elif data["tabella"] == "offerta":
+                print(data)
+                res = self._w.insertOfferta((data["SCod"], data["CCod"]))
                 return {"esito": res}
             else:
                 return {"errore": "tabella non prevista"}

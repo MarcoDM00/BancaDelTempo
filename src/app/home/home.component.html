@@ -1,7 +1,7 @@
 <h1 style="text-align: center;">HOME</h1>
 <div style="text-align: center;">
-    <button (click)="categoria()">Visua categoria</button>
-    <table [hidden]="hideCategoria" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.categoria(); gestore.hideCategoria = !gestore.hideCategoria">Visua categoria</button>
+    <table [hidden]="gestore.hideCategoria" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>CCod</th>
@@ -9,17 +9,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of categorie">
+            <tr *ngFor="let x of gestore.categorie">
                 <td>{{x.CCod}}</td>
                 <td>{{x.CDescr}}</td>
             </tr>
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="query_D()">Visua Query D</button>
-    <table [hidden]="hideQueryD" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.query_D(); gestore.hideQueryD = !gestore.hideQueryD">Visua Query D</button>
+    <table [hidden]="gestore.hideQueryD" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>PDescr</th>
@@ -27,17 +27,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of queryD">
+            <tr *ngFor="let x of gestore.queryD">
                 <td>{{x.PDescr}}</td>
                 <td>{{x.OreErogate}}</td>
             </tr>
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="soci()">Visua Socio</button>
-    <table [hidden]="hideSocio" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.soci(); gestore.hideSocio = !gestore.hideSocio">Visua Socio</button>
+    <table [hidden]="gestore.hideSocio" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>SCod</th>
@@ -51,7 +51,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of socio">
+            <tr *ngFor="let x of gestore.socio">
                 <td>{{x.SCod}}</td>
                 <td>{{x.Cognome}}</td>
                 <td>{{x.nome}}</td>
@@ -64,10 +64,10 @@
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="offerte()">Visua Offerta</button>
-    <table [hidden]="hideOfferta" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.offerte(); gestore.hideOfferta = !gestore.hideOfferta">Visua Offerta</button>
+    <table [hidden]="gestore.hideOfferta" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>SCod</th>
@@ -75,17 +75,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of offerta">
+            <tr *ngFor="let x of gestore.offerta">
                 <td>{{x.SCod}}</td>
                 <td>{{x.PCod}}</td>
             </tr>
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="query_C()">Visua queryC</button>
-    <table [hidden]="hideQueryC" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.query_C(); gestore.hideQueryC = !gestore.hideQueryC">Visua queryC</button>
+    <table [hidden]="gestore.hideQueryC" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>Cognome</th>
@@ -96,7 +96,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of queryC">
+            <tr *ngFor="let x of gestore.queryC">
                 <td>{{x.Cognome}}</td>
                 <td>{{x.Nome}}</td>
                 <td>{{x.Via}}</td>
@@ -106,10 +106,10 @@
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="zona()">Visua Zone</button>
-    <table [hidden]="hideZone" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.zona(); gestore.hideZone = !gestore.hideZone">Visua Zone</button>
+    <table [hidden]="gestore.hideZone" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>ZCod</th>
@@ -118,7 +118,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of zone">
+            <tr *ngFor="let x of gestore.zone">
                 <td>{{x.ZCod}}</td>
                 <td>{{x.ZDescr}}</td>
                 <td>{{x.ZMappa}}</td>
@@ -126,29 +126,29 @@
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="categoria(); prestazioni();">Visua Prestazioni</button>
-    <br [hidden]="hidePrestazione">
-    <br [hidden]="hidePrestazione">
-    <input [hidden]="hidePrestazione"
+    <button mat-flat-button color="primary" (click)="gestore.prestazioni(); gestore.hidePrestazione = !gestore.hidePrestazione">Visua Prestazioni</button>
+    <br [hidden]="gestore.hidePrestazione">
+    <br [hidden]="gestore.hidePrestazione">
+    <input [hidden]="gestore.hidePrestazione"
         matInput
         type="text"
         name="pDescr"
         required
         minlength="4"
         placeholder="PDescr"
-        [(ngModel)]="newPrestazione.PDescr">
-        <br [hidden]="hidePrestazione">
-        <mat-label [hidden]="hidePrestazione">Codice zona</mat-label>
-        <mat-select [hidden]="hidePrestazione" [(ngModel)]="newPrestazione.CCod" name="ccod">
-            <mat-option *ngFor="let x of categorie" [value]="x.CCod">
+        [(ngModel)]="gestore.newPrestazione.PDescr">
+        <br [hidden]="gestore.hidePrestazione">
+        <mat-label [hidden]="gestore.hidePrestazione">Codice zona</mat-label>
+        <mat-select [hidden]="gestore.hidePrestazione" [(ngModel)]="gestore.newPrestazione.CCod" name="ccod">
+            <mat-option *ngFor="let x of gestore.categorie" [value]="x.CCod">
                 {{x.CCod}}
             </mat-option>
         </mat-select>
-        <button [hidden]="hidePrestazione" (click)="addPrestazione()">Inserisci</button>
-    <br [hidden]="hidePrestazione">
-    <table [hidden]="hidePrestazione" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+        <button mat-flat-button color="primary" [hidden]="gestore.hidePrestazione" (click)="gestore.addPrestazione()">Inserisci</button>
+    <br [hidden]="gestore.hidePrestazione">
+    <table [hidden]="gestore.hidePrestazione" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>PCod</th>
@@ -157,7 +157,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of prestazione">
+            <tr *ngFor="let x of gestore.prestazione">
                 <td>{{x.PCod}}</td>
                 <td>{{x.PDescr}}</td>
                 <td>{{x.CCod}}</td>
@@ -165,10 +165,10 @@
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="query_A()">Visua QueryA</button>
-    <table [hidden]="hideQueryA" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.query_A(); gestore.hideQueryA = !gestore.hideQueryA">Visua QueryA</button>
+    <table [hidden]="gestore.hideQueryA" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>Sri</th>
@@ -179,7 +179,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of queryA">
+            <tr *ngFor="let x of gestore.queryA">
                 <td>{{x.Sri}}</td>
                 <td>{{x.Cognome}}</td>
                 <td>{{x.Nome}}</td>
@@ -189,10 +189,46 @@
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="prenotazioni()">Visua Prenotazioni</button>
-    <table [hidden]="hidePrenotazione" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.prenotazioni(); gestore.hidePrenotazione = !gestore.hidePrenotazione">Visua Prenotazioni</button>
+    <br [hidden]="gestore.hidePrenotazione">
+    <br [hidden]="gestore.hidePrenotazione">
+    <mat-label [hidden]="gestore.hidePrenotazione">Codice Socio</mat-label>
+    <mat-select [hidden]="gestore.hidePrenotazione" [(ngModel)]="gestore.newPrenotazione.SRichiedente" name="SRichiedente">
+        <mat-option *ngFor="let x of gestore.socio" [value]="x.SCod">
+            {{x.SCod}}
+        </mat-option>
+    </mat-select>
+    <br [hidden]="gestore.hidePrenotazione">
+    <mat-label [hidden]="gestore.hidePrenotazione">Codice Prestazione</mat-label>
+    <mat-select [hidden]="gestore.hidePrenotazione" [(ngModel)]="gestore.newPrenotazione.PCod" name="PCod">
+        <mat-option *ngFor="let x of gestore.prestazione" [value]="x.PCod">
+            {{x.PCod}}
+        </mat-option>
+    </mat-select>
+    <br [hidden]="gestore.hidePrenotazione">
+    <input [hidden]="gestore.hidePrenotazione"
+        matInput
+        type="date"
+        name="pDescr"
+        required
+        minlength="4"
+        placeholder="DataDellaRich (yyyy-mm-dd)"
+        [(ngModel)]="gestore.newPrenotazione.DataDellaRich">
+    <br [hidden]="gestore.hidePrenotazione">
+    <input [hidden]="gestore.hidePrenotazione"
+        matInput
+        type="date"
+        name="pDescr"
+        required
+        minlength="4"
+        placeholder="DataP (yyyy-mm-dd)"
+        [(ngModel)]="gestore.newPrenotazione.DataP">
+    <br [hidden]="gestore.hidePrenotazione">
+    <button mat-flat-button color="primary" [hidden]="gestore.hidePrenotazione" (click)="gestore.addPrenotazione()">Inserisci</button>
+    <br [hidden]="gestore.hidePrestazione">
+    <table [hidden]="gestore.hidePrenotazione" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>N</th>
@@ -203,7 +239,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of prenotazione">
+            <tr *ngFor="let x of gestore.prenotazione">
                 <td>{{x.N}}</td>
                 <td>{{x.SRichiedente}}</td>
                 <td>{{x.PCod}}</td>
@@ -213,10 +249,10 @@
         </tbody>
     </table>
 
-    <br>
+    <br><br>
 
-    <button (click)="effettuazioni()">Visua Effettuazioni</button>
-    <table [hidden]="hideEffettua" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <button mat-flat-button color="primary" (click)="gestore.effettuazioni(); gestore.hideEffettua = !gestore.hideEffettua">Visua Effettuazioni</button>
+    <table [hidden]="gestore.hideEffettua" id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
         <thead>
             <tr>
                 <th>Num</th>
@@ -227,7 +263,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of effettua">
+            <tr *ngFor="let x of gestore.effettua">
                 <td>{{x.Num}}</td>
                 <td>{{x.Data}}</td>
                 <td>{{x.SocioErogante}}</td>
